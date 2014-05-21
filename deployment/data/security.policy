@@ -63,11 +63,15 @@ ALLOW {
   (java.util.PropertyPermission "java.vendor" "read")
   (java.util.PropertyPermission "glyphlist_ext" "read")
   (java.util.PropertyPermission "http.strictPostRedirect" "read")
-  (java.io.FilePermission "C:/Mendix Project/DataGridExtension/deployment/data/tmp/-" "read,write,delete,execute")
-  (java.io.FilePermission "C:/Mendix Project/DataGridExtension/deployment/model/resources/-"  "read")
-  (java.io.FilePermission "C:/Mendix Project/DataGridExtension/deployment/model/lib/-"  "read")
+  (java.io.FilePermission "C:/Mendix Project/Demo_DataGridExtension/deployment/data/tmp/-" "read,write,delete,execute")
+  (java.io.FilePermission "C:/Mendix Project/Demo_DataGridExtension/deployment/model/resources/-"  "read")
+  (java.io.FilePermission "C:/Mendix Project/Demo_DataGridExtension/deployment/model/lib/-"  "read")
   (java.net.SocketPermission "*" "connect, accept")
   (java.lang.RuntimePermission "getProtectionDomain")
+  (java.lang.RuntimePermission "getClassLoader")
+  (java.lang.RuntimePermission "setContextClassLoader")
+  (java.lang.RuntimePermission "accessDeclaredMembers")
+  (java.lang.reflect.ReflectPermission "suppressAccessChecks")
 } "Permissions for the project bundle"
 
 ALLOW {

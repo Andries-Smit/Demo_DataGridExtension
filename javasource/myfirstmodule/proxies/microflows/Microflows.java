@@ -112,6 +112,19 @@ public class Microflows
 		}
 	}
 
+	public static void open_FirstUser(IContext context)
+	{
+		try
+		{
+			Map<String, Object> params = new HashMap<String, Object>();
+			Core.execute(context, "MyFirstModule.Open_FirstUser", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+
 	public static void param(IContext context, system.proxies.UserRole _userRole)
 	{
 		try
