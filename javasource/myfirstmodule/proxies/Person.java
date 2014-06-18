@@ -31,7 +31,8 @@ public class Person
 	{
 		Name("Name"),
 		CssClass("CssClass"),
-		Employed("Employed");
+		Employed("Employed"),
+		Order("Order");
 
 		private String metaName;
 
@@ -250,6 +251,42 @@ public class Person
 	public final void setEmployed(IContext context, Boolean employed)
 	{
 		getMendixObject().setValue(context, MemberNames.Employed.toString(), employed);
+	}
+
+	/**
+	 * @return value of Order
+	 */
+	public final Integer getOrder()
+	{
+		return getOrder(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Order
+	 */
+	public final Integer getOrder(IContext context)
+	{
+		return (Integer) getMendixObject().getValue(context, MemberNames.Order.toString());
+	}
+
+	/**
+	 * Set value of Order
+	 * @param order
+	 */
+	public final void setOrder(Integer order)
+	{
+		setOrder(getContext(), order);
+	}
+
+	/**
+	 * Set value of Order
+	 * @param context
+	 * @param order
+	 */
+	public final void setOrder(IContext context, Integer order)
+	{
+		getMendixObject().setValue(context, MemberNames.Order.toString(), order);
 	}
 
 	/**

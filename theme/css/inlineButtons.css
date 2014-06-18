@@ -1,0 +1,7 @@
+.showOnRowHover {
+	display: none;
+}
+
+.mx-datagrid table tbody tr:hover td .showOnRowHover {
+	display: inline;
+}

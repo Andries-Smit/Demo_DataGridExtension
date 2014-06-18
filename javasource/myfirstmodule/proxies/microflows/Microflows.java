@@ -16,6 +16,41 @@ public class Microflows
 {
 	// These are the Microflows for the MyFirstModule module
 
+	public static boolean bCo_SetInitOrder(IContext context, myfirstmodule.proxies.Person _person)
+	{
+		try
+		{
+			Map<String, Object> params = new HashMap<String, Object>();
+			params.put("Person", _person == null ? null : _person.getMendixObject());
+			return (Boolean)Core.execute(context, "MyFirstModule.BCo_SetInitOrder", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+
+	public static java.util.List<myfirstmodule.proxies.Person_NP> dS_Persons_NonPersistant(IContext context)
+	{
+		try
+		{
+			Map<String, Object> params = new HashMap<String, Object>();
+			java.util.List<IMendixObject> objs = Core.execute(context, "MyFirstModule.DS_Persons_NonPersistant", params);
+			java.util.List<myfirstmodule.proxies.Person_NP> result = null;
+			if (objs != null)
+			{
+				result = new java.util.ArrayList<myfirstmodule.proxies.Person_NP>();
+				for (IMendixObject obj : objs)
+					result.add(myfirstmodule.proxies.Person_NP.initialize(context, obj));
+			}
+			return result;
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+
 	public static void iVK_AllPages(IContext context, java.util.List<system.proxies.UserRole> _userRoleList)
 	{
 		try
@@ -37,6 +72,20 @@ public class Microflows
 		}
 	}
 
+	public static void iVK_DeletePerson(IContext context, myfirstmodule.proxies.Person _person)
+	{
+		try
+		{
+			Map<String, Object> params = new HashMap<String, Object>();
+			params.put("Person", _person == null ? null : _person.getMendixObject());
+			Core.execute(context, "MyFirstModule.IVK_DeletePerson", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+
 	public static void iVK_DeletePersons(IContext context, java.util.List<myfirstmodule.proxies.Person> _personList)
 	{
 		try
@@ -51,6 +100,34 @@ public class Microflows
 			}
 			params.put("PersonList", listparam_personList);
 			Core.execute(context, "MyFirstModule.IVK_DeletePersons", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+
+	public static void iVK_MoveDown(IContext context, myfirstmodule.proxies.Person _person)
+	{
+		try
+		{
+			Map<String, Object> params = new HashMap<String, Object>();
+			params.put("Person", _person == null ? null : _person.getMendixObject());
+			Core.execute(context, "MyFirstModule.IVK_MoveDown", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+
+	public static void iVK_MoveUp(IContext context, myfirstmodule.proxies.Person _person)
+	{
+		try
+		{
+			Map<String, Object> params = new HashMap<String, Object>();
+			params.put("Person", _person == null ? null : _person.getMendixObject());
+			Core.execute(context, "MyFirstModule.IVK_MoveUp", params);
 		}
 		catch (CoreException e)
 		{
@@ -118,6 +195,20 @@ public class Microflows
 		{
 			Map<String, Object> params = new HashMap<String, Object>();
 			Core.execute(context, "MyFirstModule.Open_FirstUser", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+
+	public static void opn_EditPerson(IContext context, myfirstmodule.proxies.Person _person)
+	{
+		try
+		{
+			Map<String, Object> params = new HashMap<String, Object>();
+			params.put("Person", _person == null ? null : _person.getMendixObject());
+			Core.execute(context, "MyFirstModule.Opn_EditPerson", params);
 		}
 		catch (CoreException e)
 		{

@@ -3,7 +3,7 @@ dojo.provide("EmptyGridLabel.widget.emptygridlabel");
 (function () {
 
     var widget = {
-        addons: [dijit._Contained, mendix.addon._Contextable],
+        mixins: [dijit._Contained, mendix.addon._Contextable],
 
         inputargs: {
             onclickmf: "",
@@ -21,10 +21,12 @@ dojo.provide("EmptyGridLabel.widget.emptygridlabel");
         postCreate: function () {
             dojo.addClass(this.domNode, "EmptyGridLabel");
             try {
-                colindex = this.domNode.parentNode.cellIndex;
+                var colindex = this.domNode.parentNode.cellIndex;
                 this.grid = dijit.findWidgets(this.domNode.parentNode.parentNode.previousSibling.cells[colindex])[0];
                 this.connect(this.grid, "fillGrid", this.performUpdate); //TODO: monkeypatching. Should be a nice pluginevent in Mendix 3.0.x
-            } catch (e) {}
+            } catch (e) {
+                console.error("Error in empty grid lable" + e);
+            }
 
             if (this.grid === null) {
                 this.caption = "Error: unable to find grid. Is the widget placed in a row underneath a grid?";
@@ -70,13 +72,13 @@ dojo.provide("EmptyGridLabel.widget.emptygridlabel");
                 var size = (this.grid.getCurrentGridSize ? this.grid.getCurrentGridSize() : this.grid._datagrid.getCurrentGridSize());
                 if (size === 0)
                     this.showButton();
-                else
+                else 
                     this.hideButton();
             }
         },
 
         applyContext: function (context, callback) {
-            if (context && context.getTrackID() !== "") {
+            if (context && context.getTrackId() !== "") {
                 this.dataobject = context;
             }
             callback && callback();
